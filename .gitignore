@@ -1,0 +1,13 @@
+lib
+.classpath
+.project
+.idea
+.settings
+target
+.git
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+
+
+
