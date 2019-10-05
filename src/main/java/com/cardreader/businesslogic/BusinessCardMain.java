@@ -4,7 +4,6 @@ import java.io.*;
 
 import com.cardreader.interfaces.IContactInfo;
 
-//This is test we can push in git
 
 public class BusinessCardMain 
 {
