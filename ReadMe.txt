@@ -31,4 +31,4 @@ SYNTAX:
 java CardReader [path to input file] [path to output file]
 
 CONCRETE EXAMPLE:
-java CardReader /home/thisuser/Desktop/Inputfiles/BusinessCardInput  /home/thisuser/Desktop/Inputfiles/BusinessCardOutput
+java CardReader /[*Path to CardReader directory*]/Inputfiles/BusinessCardInput  /[*Path to CardReader directory*]/Outputfiles/BusinessCardOutput
