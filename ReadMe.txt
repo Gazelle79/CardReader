@@ -14,7 +14,7 @@ REQUIREMENTS
 ------------
 Java 1.8.0_181 or higher
 Stanford Core NLP Libraries, version 3.9.2 - English
-
+Apache Maven 3.6.2
 
 
 GETTING STARTED
@@ -31,4 +31,4 @@ SYNTAX:
 java CardReader [path to input file] [path to output file]
 
 CONCRETE EXAMPLE:
-java CardReader /home/thisuser/Desktop/Inputfiles/BusinessCardInput  /home/thisuser/Desktop/Inputfiles/BusinessCardOutput
+java CardReader /[*Path to CardReader directory*]/Inputfiles/BusinessCardInput  /[*Path to CardReader directory*]/Outputfiles/BusinessCardOutput
