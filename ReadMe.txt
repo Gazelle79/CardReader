@@ -20,9 +20,15 @@ This application doesn't have a GUI. You run it from a command prompt.
 
 REQUIREMENTS
 ------------
-Java 1.8.0_181 or higher
-Stanford Core NLP Libraries, version 3.9.2 - English
+Java 1.8.0_181 or higher 
+(https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
 Apache Maven 3.6.2
+(https://maven.apache.org/download.cgi)
+
+Stanford Core NLP Libraries, version 3.9.2 - English
+(Automatically downloaded by project)
+
 
 
 GETTING STARTED
