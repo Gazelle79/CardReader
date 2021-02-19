@@ -56,9 +56,9 @@ EXAMPLE: ``mvn exec:java -Dexec.mainClass="com.cardreader.businesslogic.Business
 
 Default values are automatically used to read and write data. They are:
 
-**input file path:** ``.../CardReader/InputFiles/``
+   **input file path:** ``.../CardReader/InputFiles/``
 
-**output file path:** ``.../CardReader/OutputFiles/``
+   **output file path:** ``.../CardReader/OutputFiles/``
 
 
 #### WITH input / output paths as arguments:
