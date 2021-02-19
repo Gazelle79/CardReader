@@ -59,8 +59,7 @@ Default values are automatically used to read and write data. They are:
 **output file path:** ``.../CardReader/OutputFiles/``
 
 
-WITH input / output paths as arguments:
--------------------------------------------------
+#### WITH input / output paths as arguments:
 
 *EXAMPLE:* `` mvn exec:java -Dexec.mainClass="com.cardreader.businesslogic.BusinessCardMain"  -Dexec.args=" /[*Path to CardReader*]/CardReader/Inputfiles/BusinessCardInput  /[*Path to CardReader*]/CardReader/Outputfiles/BusinessCardOutput" ``
 
