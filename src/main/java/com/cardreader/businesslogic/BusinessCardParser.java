@@ -27,7 +27,7 @@ public class BusinessCardParser implements IBusinessCardParser
 
 	private String givenName = "";
 	private String surname = "";
-	private String fullName = "";
+	private String fullName = givenName + " " + surname;
 	private String phoneNumber = "";
 	private String email="";
 
@@ -155,7 +155,6 @@ public class BusinessCardParser implements IBusinessCardParser
 
 		if (!document.isEmpty()) 
 		{
-			fullName = givenName + " " + surname;
 			newContact = new ContactInfo(fullName, email, phoneNumber);
 		}
 		//return a null contact if the contact "document" was empty.
