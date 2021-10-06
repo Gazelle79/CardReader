@@ -19,13 +19,11 @@ public class BusinessCardParser implements IBusinessCardParser
 	private String phoneNumberRegex = "^*\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
 	private String phonePrefixRegex = "^(Phone.*)*\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
 	private String telPrefixRegex = "^(Tel.*)*\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
-	private String faxPrefixRegex = "^(Fax.*)*\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";
 	private String charactersToKeepRegex = "[^a-zA-Z0-9.@&' ']";
 
 	Pattern phoneNumberPattern = Pattern.compile(phoneNumberRegex);
 	Pattern phonePrefixPattern = Pattern.compile(phonePrefixRegex, Pattern.CASE_INSENSITIVE);
 	Pattern telPrefixPattern = Pattern.compile(telPrefixRegex, Pattern.CASE_INSENSITIVE);
-	Pattern faxPrefixPattern = Pattern.compile(faxPrefixRegex, Pattern.CASE_INSENSITIVE);
 
 	private String givenName = "";
 	private String surname = "";
@@ -103,7 +101,7 @@ public class BusinessCardParser implements IBusinessCardParser
 					Double confidence = 0.0;
 					if(confidenceObject != null)
 					{
-						confidence = Double.parseDouble(wordMap.get(namedEntity).toString());
+						confidence = Double.parseDouble(confidenceObject.toString());
 					}
 
 					switch(namedEntity)
@@ -128,7 +126,7 @@ public class BusinessCardParser implements IBusinessCardParser
 
 						case "EMAIL":
 						{
-							email += wordText;
+							email = wordText;
 							break;
 						}
 
@@ -157,62 +155,13 @@ public class BusinessCardParser implements IBusinessCardParser
 
 		if (!document.isEmpty()) 
 		{
-			newContact = new ContactInfo();
 			fullName = givenName + " " + surname;
-			newContact.setName(fullName);
-			newContact.setEmailAddress(email);
-			newContact.setPhoneNumber(phoneNumber);
+			newContact = new ContactInfo(fullName, email, phoneNumber);
 		}
 		//return a null contact if the contact "document" was empty.
 		
 		return newContact;
 	}
-
-
-	/** 
-	 Writes contact information to an output file for a single contact. If an output
-	 file already exists, it's deleted, so a new file can be made.
-	 @param contact - the contact to be written to a file.
-	 @param fileNameAndPath - the name & path of the file to write the data to.
-	*/
-	public boolean writeCardInfo(IContactInfo contact, String fileNameAndPath) 
-	{
-		boolean wasWrittenToFile = false;
-
-		if(contact != null)
-		{
-			try 
-			{
-				File businessCardFile = new File(fileNameAndPath);
-				
-				if(businessCardFile.exists())
-				{
-					businessCardFile.delete();
-				}
-				
-				FileWriter writer = new FileWriter(businessCardFile);
-				String contactInfo = "Name: " + contact.getName() + "\n"
-						+ "Phone: " + contact.getPhoneNumber() + "\n"
-						+ "E-mail: " + contact.getEmailAddress() + "\n";
-				
-				/*
-				if(contact.getFaxNumber() != null)
-				{ contactInfo += "Fax number: " + contact.getFaxNumber() + "\n"; }
-				 */
-				writer.write(contactInfo);
-				writer.close();
-				wasWrittenToFile = true;
-								
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		
-		return wasWrittenToFile;
-	}
-	
 
 
 }
