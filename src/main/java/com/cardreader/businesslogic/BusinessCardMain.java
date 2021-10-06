@@ -24,8 +24,8 @@ public class BusinessCardMain
 		try
 		{
 			businessContactInfo = cardParser.readCardInfo(inputFileNameAndPath);
-			System.out.println("Reading from file: \n" + inputFileNameAndPath
-					+ "\n\nCard information: \n\n" + businessContactInfo + "\n");
+			System.out.println("Reading from: \n" + inputFileNameAndPath
+					+ "\n\nData: \n\n" + businessContactInfo + "\n");
 		}
 		catch(Exception e)
 		{ 
@@ -36,7 +36,7 @@ public class BusinessCardMain
 		IContactInfo contact = cardParser.getContactInfo(businessContactInfo);
 
 		//Write contact information to a file.
-		String contactOutput = "Formatted card information: \n\n" 
+		String contactOutput = "Formatted data: \n\n"
 				+ "Name: " + contact.getName() + "\n"
 				+ "Phone: " + contact.getPhoneNumber() + "\n"
 				+ "Email: " + contact.getEmail() + "\n";
