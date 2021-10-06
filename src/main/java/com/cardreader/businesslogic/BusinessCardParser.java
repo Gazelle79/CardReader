@@ -27,13 +27,13 @@ public class BusinessCardParser implements IBusinessCardParser
 
 	private String givenName = "";
 	private String surname = "";
-	private String fullName = givenName + " " + surname;
 	private String phoneNumber = "";
 	private String email="";
 
 	
 	/**
 	 Reads all business card input from a text file, specified by fileNameAndPath.
+	 Returns: All card input data, as a string.
 	 @param fileNameAndPath - the name and path of the input file to read from.
 	 */
 	public String readCardInfo(String fileNameAndPath) throws IOException 
@@ -57,12 +57,12 @@ public class BusinessCardParser implements IBusinessCardParser
 	}
 
 	/**
-	Reads the contents of an OCR input file as a string. Returns a single, populated ContactInfo object.
-	@param document - the entire contents of a business card file as a string.
+	 Reads the contents of an OCR input file as a string.
+	 Returns: ContactInfo object.
+	 @param document - the entire contents of a business card file as a string.
 	*/
 	public IContactInfo getContactInfo(String document) 
 	{
-
 		ContactInfo newContact = null;
 
         Properties props = new Properties();
@@ -77,7 +77,6 @@ public class BusinessCardParser implements IBusinessCardParser
 			Annotation thisContactInfoLine = new Annotation(contactInfoLine);
 			pipeline.annotate(thisContactInfoLine);
 
-
 			// these are all the sentences in this document
 			// a CoreMap is essentially a Map that uses class objects as keys and has values with custom types
 			List<CoreMap> words = thisContactInfoLine.get(CoreAnnotations.SentencesAnnotation.class);
@@ -88,17 +87,15 @@ public class BusinessCardParser implements IBusinessCardParser
 				// a CoreLabel is a CoreMap with additional token-specific methods
 				for (CoreLabel token : thisWord.get(CoreAnnotations.TokensAnnotation.class))
 				{
-					//Text of the token
+					//Text & named entity of the token
 					String wordText = token.get(CoreAnnotations.TextAnnotation.class);
-					//Named Entity Relationship (NER) label of the token
 					String namedEntity = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
 
 					//Get a map of this word. Structure: Map<key, value>
 					Map wordMap = token.get(CoreAnnotations.NamedEntityTagProbsAnnotation.class);
-					//Get the value of this Maps' key-value pair. Get a confidence value by casting it into a double.
-					// 0.98 == "I'm 98% sure this named entity is a Person, Email, etc."
 					Object confidenceObject = wordMap.get(namedEntity);
 					Double confidence = 0.0;
+
 					if(confidenceObject != null)
 					{
 						confidence = Double.parseDouble(confidenceObject.toString());
@@ -108,19 +105,14 @@ public class BusinessCardParser implements IBusinessCardParser
 					{
 						case "PERSON":
 						{
-							if(fullName.isEmpty())
+							if(givenName.isEmpty() && confidence >= confidenceThreshold)
 							{
-								if(givenName.isEmpty() && confidence >= confidenceThreshold)
-								{
-									givenName = wordText;
-								}
-								else if (surname.isEmpty() && confidence >= confidenceThreshold)
-								{
-									surname = wordText;
-								}
+								givenName = wordText;
 							}
-							else
-							{	/*This person already has a first & last name. Do nothing*/	}
+							else if (surname.isEmpty() && confidence >= confidenceThreshold)
+							{
+								surname = wordText;
+							}
 							break;
 						}
 
@@ -155,9 +147,8 @@ public class BusinessCardParser implements IBusinessCardParser
 
 		if (!document.isEmpty()) 
 		{
-			newContact = new ContactInfo(fullName, email, phoneNumber);
+			newContact = new ContactInfo(givenName + " " + surname, email, phoneNumber);
 		}
-		//return a null contact if the contact "document" was empty.
 		
 		return newContact;
 	}
