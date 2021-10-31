@@ -11,17 +11,10 @@ SUMMARY
 ### Input:
 Data is read in from:
 
- - ``BusinessCardInput.txt``
-Location: ``../CardReader/InputFiles/BusinessCardInput.txt``
+ - ``../CardReader/InputFiles/BusinessCardInput.txt``
 
-
-### Output:
-Data is written to: 
-
- - ``BusinessCardOutput.txt``
-Location: ``../CardReader/OutputFiles/BusinessCardOutput.txt``
-
-The user can specify their own input and output file paths - as long as data is written to & read from the the right files.
+As long as data is read in from ``BusinessCardInput.txt``, the user can specify their own path to that file.But the file 
+must be named ``BusinessCardInput.txt``.
 
 
 REQUIREMENTS
@@ -57,12 +50,12 @@ TO START
 
 ``mvn exec:java``
 
-This default value is used to read data in:
+Default argument, when none are given:
 
 ``../CardReader/InputFiles/BusinessCardInput.txt``
 
 
-#### WITH input path as arguments:
+#### WITH input path as argument:
 
 ``mvn exec:java -Dexec.args=" ../Your/path/to/BusinessCardInput.txt " ``
 
