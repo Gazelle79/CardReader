@@ -26,11 +26,9 @@ The user can specify their own input and output file paths - as long as data is 
 
 REQUIREMENTS
 ------------
- - [x] Java 1.8.0_181 or higher 
-(https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+ - [x] Java 14 or higher  (https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
 
- - [x] Apache Maven 3.6.2
-(https://maven.apache.org/download.cgi)
+ - [x] Apache Maven 3.6.2 (https://maven.apache.org/download.cgi)
 
  - [x] Stanford Core NLP Libraries, version 3.9.2 - English
 (Automatically downloaded by project)
@@ -42,26 +40,29 @@ TO START
  - Open a command prompt in Linux or Windows
  - Change directories to the location of CardReader
  - Compile the application
+ - Unit test everything (all unit tests in all classes must pass)
  - Execute the application
 
-### COMPILE:
-``mvn compile``
+### Run all steps in this order:
 
+ ### COMPILE:
+``mvn clean compile``
+
+### UNIT TEST:
+``mvn clean test``
 
 ### EXECUTE:
 
 #### WITHOUT any arguments:
 
-EXAMPLE: ``mvn exec:java -Dexec.mainClass="com.cardreader.businesslogic.BusinessCardMain"``
+``mvn exec:java``
 
-Default values are automatically used to read and write data. They are:
+This default value is used to read data in:
 
-   **input file path:** ``.../CardReader/InputFiles/``
-
-   **output file path:** ``.../CardReader/OutputFiles/``
+``../CardReader/InputFiles/BusinessCardInput.txt``
 
 
-#### WITH input / output paths as arguments:
+#### WITH input path as arguments:
 
-*EXAMPLE:* `` mvn exec:java -Dexec.mainClass="com.cardreader.businesslogic.BusinessCardMain"  -Dexec.args=" /[*Path to CardReader*]/CardReader/Inputfiles/BusinessCardInput  /[*Path to CardReader*]/CardReader/Outputfiles/BusinessCardOutput" ``
+``mvn exec:java -Dexec.args=" ../Your/path/to/BusinessCardInput.txt " ``
 
