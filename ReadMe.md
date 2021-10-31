@@ -13,8 +13,8 @@ Data is read in from:
 
  - ``../CardReader/InputFiles/BusinessCardInput.txt``
 
-As long as data is read in from ``BusinessCardInput.txt``, the user can specify their own path to that file.But the file 
-must be named ``BusinessCardInput.txt``.
+As long as data is read in from ``BusinessCardInput.txt``, the user can specify their own path to that file. But the file 
+**must** be named ``BusinessCardInput.txt``.
 
 
 REQUIREMENTS
