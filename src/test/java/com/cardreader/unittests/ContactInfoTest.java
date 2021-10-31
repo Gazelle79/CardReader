@@ -9,27 +9,15 @@ import com.cardreader.interfaces.IContactInfo;
 public class ContactInfoTest {
 
 	private String name = "Mike Smith";
+	private String email = "msmith@acme.com";
 	private String phoneNumber = "(410)555-1234";
-	private String email = "msmith@asymmetrik.com";
 
-	private IContactInfo contact = new ContactInfo(name, email, phoneNumber);
-
-	@Test
-	public void setNameTest() 
-	{
-		assertEquals("Mike Smith", contact.getName());
-	}
+	private IContactInfo contact = new ContactInfo(name, phoneNumber, email);
 
 	@Test
 	public void getNameTest() 
 	{
 		assertEquals(name, contact.getName());
-	}
-
-	@Test
-	public void setPhoneNumberTest() 
-	{
-		assertEquals("(410)555-1234", contact.getPhoneNumber());
 	}
 
 	@Test
@@ -39,13 +27,7 @@ public class ContactInfoTest {
 	}
 
 	@Test
-	public void setEmailAddressTest() 
-	{
-		assertEquals("msmith@asymmetrik.com", contact.getEmail());
-	}
-
-	@Test
-	public void getEmailAddressTest() 
+	public void getEmailTest()
 	{
 		assertEquals(email, contact.getEmail());
 	}

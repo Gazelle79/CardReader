@@ -4,9 +4,9 @@ import com.cardreader.interfaces.IContactInfo;
 
 public class ContactInfo implements IContactInfo 
 {
-	private String name = null;
-	private String phoneNumber = null;
-	private String email = null;
+	private String name = "";
+	private String phoneNumber = "";
+	private String email = "";
 
 	/** returns the full name of the individual (eg. John Smith, Susan Malick) */
 	public String getName()
