@@ -49,30 +49,12 @@ public class BusinessCardParserTest
 		
 		assertTrue(document.length() > 0);
 		assertTrue(person.getName().length() > 0);
-		assertTrue(person.getEmailAddress().length() > 0);
+		assertTrue(person.getEmail().length() > 0);
 		assertTrue(person.getPhoneNumber().length() > 0);
 		
 		System.out.println("Name: " + person.getName());
-		System.out.println("E-mail: " + person.getEmailAddress());
+		System.out.println("E-mail: " + person.getEmail());
 		System.out.println("Phone: " + person.getPhoneNumber());
-
-	}
-	
-	@Test
-	public void writeCardInfoTest() throws IOException
-	{
-		String document = parser.readCardInfo(inputFileNameAndPath);
-		boolean wasWrittenToFile = false;
-		
-		//Write to file successfully.
-		IContactInfo goodContact = parser.getContactInfo(document);
-		wasWrittenToFile = parser.writeCardInfo(goodContact, outputFileNameAndPath);
-		assertTrue(wasWrittenToFile);
-		
-		//Write a bad one to file.
-		IContactInfo badContact = null;
-		wasWrittenToFile = parser.writeCardInfo(badContact, outputFileNameAndPath);
-		assertFalse(wasWrittenToFile);
 	}
 
 
