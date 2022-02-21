@@ -26,7 +26,7 @@ Java 1.8.0_181 or higher
 Apache Maven 3.6.2
 (https://maven.apache.org/download.cgi)
 
-Stanford Core NLP Libraries, version 3.9.2 - English
+Stanford Core NLP Libraries, version 4.4.0 - English
 (Automatically downloaded by project)
 
 

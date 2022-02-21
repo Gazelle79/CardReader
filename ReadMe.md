@@ -23,7 +23,7 @@ REQUIREMENTS
 
  - [x] Apache Maven 3.6.2 (https://maven.apache.org/download.cgi)
 
- - [x] Stanford Core NLP Libraries, version 3.9.2 - English
+ - [x] Stanford Core NLP Libraries, version 4.4.0 - English
 (Automatically downloaded by project)
 
 
