@@ -33,8 +33,9 @@ public class BusinessCardParser implements IBusinessCardParser
 	
 	/**
 	 Reads all business card input from a text file, specified by fileNameAndPath.
-	 Returns: All card input data, as a string.
-	 @param fileNameAndPath - the name and path of the input file to read from.
+
+	 @param fileNameAndPath The name and path of the input file to read from.
+	 @return All card input data, as a string.
 	 */
 	public String readCardInfo(String fileNameAndPath) throws IOException 
 	{
@@ -56,11 +57,7 @@ public class BusinessCardParser implements IBusinessCardParser
 
 	}
 
-	/**
-	 Reads the contents of an OCR input file as a string.
-	 Returns: ContactInfo object.
-	 @param document - the entire contents of a business card file as a string.
-	*/
+
 	public IContactInfo getContactInfo(String document) 
 	{
 		ContactInfo newContact = null;

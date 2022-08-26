@@ -1,9 +1,30 @@
 package com.cardreader.interfaces;
 
-public interface IContactInfo 
+
+/**
+ * Returns card information that's read from <code>BusinessCardInput.txt</code>.
+ */
+public interface IContactInfo
 {
-    String getName(); //returns the full name of the individual (eg. John Smith, Susan Malick)
-    String getPhoneNumber(); //returns the phone number formatted as XXX-XXX-XXXX
-    String getEmail(); //returns the email address of the individual */
+    /**
+     * Returns the first & last name of the business card owner.
+     *
+     * @return The first & last name of the business card owner. Format: FirstName, LastName
+     */
+    String getName();
+
+    /**
+     * Returns the phone number of the card owner.
+     *
+     * @return The phone number of the card owner. Format: XXX-XXX-XXXX.
+     */
+    String getPhoneNumber();
+
+    /**
+     * Returns the email address of the card owner.
+     *
+     * @return The email address of the card owner.
+     */
+    String getEmail();
 
 }

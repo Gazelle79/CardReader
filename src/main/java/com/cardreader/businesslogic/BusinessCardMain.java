@@ -5,8 +5,24 @@ import java.io.*;
 import com.cardreader.interfaces.IContactInfo;
 
 
-public class BusinessCardMain 
+/**
+ * @author  Frederick Boyd Jr.
+ */
+
+public class BusinessCardMain
 {
+
+	/**
+	 * Main point of entry. Parses business card data & displays a name, phone number, & email address
+	 * to the user, as plain text.
+	 *
+	 * @param  args A filepath & filename that point to a file <code>BusinessCardInput.txt</code>.<br>
+	 *              If no argument is given, a default value is used.
+	 *
+	 * @return      None. Output is displayed to the console, as plain text.
+	 *
+	 */
+
 	public static void main(String[] args)
 	{
 		String businessContactInfo = "";
