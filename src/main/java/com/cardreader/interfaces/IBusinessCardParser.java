@@ -1,5 +1,8 @@
 package com.cardreader.interfaces;
 
+/**
+ * Reads in all text from a business card as a string & parses the data into a ContactInfo object.
+ */
 public interface IBusinessCardParser 
 {
 	/**
